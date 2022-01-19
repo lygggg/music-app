@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentTime } from "../modules/MusicControl";
 
 import styled from "styled-components";
 
@@ -9,6 +11,7 @@ function PlayFooter({ music }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>();
   const intervalRef = useRef(0);
+  const dispatch = useDispatch();
 
   const startTimer = () => {
     // Clear any timers already running
@@ -31,7 +34,8 @@ function PlayFooter({ music }) {
   };
 
   const onScrubEnd = () => {
-    if (isPlaying) {
+    dispatch(setCurrentTime(trackProgress));
+    if (!isPlaying) {
       setIsPlaying(true);
     }
     startTimer();
@@ -45,11 +49,9 @@ function PlayFooter({ music }) {
     setIsPlaying(true);
   };
 
+  dispatch(setCurrentTime(trackProgress));
   useEffect(() => {
-    // console.log(music.file);
-    audioRef.current = new Audio(
-      "https://grepp-programmers-challenges.s3.ap-northeast-2.amazonaws.com/2020-flo/music.mp3",
-    );
+    audioRef.current = new Audio(music.file);
     audioRef.current!.onloadeddata = () => {
       setIsLoaded(true);
       setDurationTime(audioRef.current!.duration);
@@ -76,14 +78,14 @@ function PlayFooter({ music }) {
           step="1"
           onChange={(e) => onScrub(e.target.value)}
           onMouseUp={onScrubEnd}
-          onKeyUp={onScrubEnd}
+          onTouchEnd={onScrubEnd}
         ></input>
       </InputDiv>
       <StyledDiv>
         <TimeDiv>
           <LeftScore>
             {String(Math.floor(trackProgress / 60)).padStart(2, "0")}:
-            {String(Math.floor(trackProgress) % 60).padStart(2, "0")}
+            {String(Math.ceil(trackProgress) % 60).padStart(2, "0")}
           </LeftScore>
           <RightScore>
             {isLoaded && (

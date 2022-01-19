@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import MusicPage from "./pages/MusicPage";
-import CounterContainer from "./containers/CounterContainer";
 
 import "./App.css";
 import styled from "styled-components";

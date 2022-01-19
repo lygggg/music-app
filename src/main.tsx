@@ -11,7 +11,7 @@ import ReduxThunk from "redux-thunk";
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(ReduxThunk, logger)),
+  composeWithDevTools(applyMiddleware(ReduxThunk)),
 );
 
 ReactDOM.render(

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import MusicPlay from "../components/MusicPlay";
-import { getMusic } from "../modules/music";
+import { getMusic } from "../modules/Music";
 
 const MusicPlayContainer = () => {
   const { data, loading, error } = useSelector((state) => state.music.music);

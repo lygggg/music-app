@@ -1,14 +1,23 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-
-import MusicPlayContainer from "../containers/MusicPlayContainer";
-import PlayFooterContainer from "../containers/PlayFooterContainer";
+import { useSelector, useDispatch } from "react-redux";
+import MusicPlay from "../components/MusicPlay";
+import PlayFooter from "../components/PlayFooter";
+import { getMusic } from "../modules/Music";
 
 function MusicPage() {
+  const { data, loading, error } = useSelector((state) => state.music.music);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMusic());
+  }, [dispatch]);
+
+  if (!data) return null;
   return (
     <Main>
-      <MusicPlayContainer />;
-      <PlayFooterContainer />
+      <MusicPlay music={data} />
+      <PlayFooter music={data} />
     </Main>
   );
 }

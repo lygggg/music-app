@@ -1,22 +1,10 @@
 import { useState, useEffect } from "react";
-import { getMusic } from "../service/MusicService";
 import styled from "styled-components";
+import Lyrics from "./Lyrics";
+import { useSelector } from "react-redux";
 
 function MusicPlay({ music }) {
-  // const [music, setMusic] = useState(Object);
-
-  // const fetchMusic = async () => {
-  //   try {
-  //     const data = await getMusic();
-  //     console.log(data, data.lyrics);
-  //     setMusic(data);
-  //   } catch (e) {}
-  // };
-
-  useEffect(() => {
-    // fetchMusic();
-  }, []);
-
+  const time = useSelector((state) => state.musicControl.musicControl.time);
   return (
     <StyledMain>
       <StyledInner>
@@ -27,8 +15,7 @@ function MusicPlay({ music }) {
           <StyledImg src={music.image} />
         </ImgDiv>
         <div>
-          <div> 난 얼어버렸다 새하얀 추억만</div>
-          <div> 난 얼어버렸다 새하얀 추억만</div>
+          <Lyrics lyrics={music.lyrics} time={Math.ceil(time)} />
         </div>
       </StyledInner>
     </StyledMain>
