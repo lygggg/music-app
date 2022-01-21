@@ -13,15 +13,18 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
+    "react-scroll": "^1.8.4",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.1",
+    "smooth-scrollbar-react": "^2.3.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
+    "@types/react-scroll": "^1.8.3",
     "@types/redux-logger": "^3.0.9",
     "@types/styled-components": "^5.1.20",
     "@vitejs/plugin-react": "^1.0.7",

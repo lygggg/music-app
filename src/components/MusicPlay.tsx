@@ -1,22 +1,38 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Lyrics from "./Lyrics";
-import { useSelector } from "react-redux";
+import EntireLyrics from "./EntireLyrics";
 
-function MusicPlay({ music }) {
-  const time = useSelector((state) => state.musicControl.musicControl.time);
+function MusicPlay({ music, time }) {
+  const [lyricsPage, setLyricsPage] = useState(true);
+
+  const backLyricsPage = () => {
+    setLyricsPage(true);
+  };
+
   return (
     <StyledMain>
       <StyledInner>
-        <TitleDiv>{music.title}</TitleDiv>
-        <AlbumDiv>{music.album}</AlbumDiv>
-        <SingerDiv>{music.singer}</SingerDiv>
-        <ImgDiv>
-          <StyledImg src={music.image} />
-        </ImgDiv>
-        <div>
-          <Lyrics lyrics={music.lyrics} time={Math.ceil(time)} />
-        </div>
+        {lyricsPage === true ? (
+          <>
+            <TitleDiv>{music.title}</TitleDiv>
+            <AlbumDiv>{music.album}</AlbumDiv>
+            <SingerDiv>{music.singer}</SingerDiv>
+            <ImgDiv>
+              <StyledImg src={music.image} />
+            </ImgDiv>
+            <div onClick={() => setLyricsPage(false)}>
+              <Lyrics lyrics={music.lyrics} time={Math.ceil(time)} />
+            </div>
+          </>
+        ) : (
+          <EntireLyrics
+            music={music}
+            setLyricsPage={backLyricsPage}
+            time={Math.ceil(time)}
+          />
+        )}
       </StyledInner>
     </StyledMain>
   );
@@ -24,12 +40,12 @@ function MusicPlay({ music }) {
 
 const TitleDiv = styled.div`
   margin-top: 80px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: lighter;
 `;
 
 const AlbumDiv = styled.div`
-  font-size: 15px;
+  font-size: 17px;
 `;
 
 const ImgDiv = styled.div`
@@ -38,7 +54,7 @@ const ImgDiv = styled.div`
 `;
 
 const SingerDiv = styled.div`
-  font-size: 13px;
+  font-size: 15px;
   color: #5d5d5d;
 `;
 

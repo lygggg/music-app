@@ -7,6 +7,8 @@ import { getMusic } from "../modules/Music";
 
 function MusicPage() {
   const { data, loading, error } = useSelector((state) => state.music.music);
+  const time = useSelector((state) => state.musicControl.musicControl.time);
+  const newTime = useSelector((state) => state.musicControl.selectMusic.object);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,8 +18,8 @@ function MusicPage() {
   if (!data) return null;
   return (
     <Main>
-      <MusicPlay music={data} />
-      <PlayFooter music={data} />
+      <MusicPlay music={data} time={time} />
+      <PlayFooter music={data} newTime={newTime} />
     </Main>
   );
 }

@@ -4,7 +4,7 @@ import { setCurrentTime } from "../modules/MusicControl";
 
 import styled from "styled-components";
 
-function PlayFooter({ music }) {
+function PlayFooter({ music, newTime }) {
   const [trackProgress, setTrackProgress] = useState(0);
   const [durationTime, setDurationTime] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,12 +21,13 @@ function PlayFooter({ music }) {
     intervalRef.current = setInterval(() => {
       if (audioRef.current.ended) {
         setIsPlaying(false);
-      } else {
+      }
+      if (isPlaying == true) {
         setTrackProgress(audioRef.current.currentTime);
+        dispatch(setCurrentTime(audioRef.current?.currentTime));
       }
     }, [1000]);
   };
-
   const onScrub = (value) => {
     clearInterval(intervalRef.current);
     audioRef.current.currentTime = value;
@@ -49,7 +50,6 @@ function PlayFooter({ music }) {
     setIsPlaying(true);
   };
 
-  dispatch(setCurrentTime(trackProgress));
   useEffect(() => {
     audioRef.current = new Audio(music.file);
     audioRef.current!.onloadeddata = () => {
@@ -59,13 +59,20 @@ function PlayFooter({ music }) {
   }, []);
 
   useEffect(() => {
-    if (isPlaying) {
+    if (isPlaying === true) {
       audioRef.current!.play();
       startTimer();
     } else {
       audioRef.current!.pause();
     }
   }, [isPlaying]);
+
+  useEffect(() => {
+    clearInterval(intervalRef.current);
+    audioRef.current.currentTime = newTime.time;
+    setTrackProgress(audioRef.current.currentTime);
+    startTimer();
+  }, [newTime]);
 
   return (
     <Footer>
@@ -115,11 +122,6 @@ function PlayFooter({ music }) {
     </Footer>
   );
 }
-
-const a = document.createElement("div");
-document.body.append(a);
-
-<div></div>;
 
 const StyledDiv = styled.div`
   text-align: -webkit-center;
