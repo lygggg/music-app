@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
 import styled from "styled-components";
 import Lyrics from "./Lyrics";
 import EntireLyrics from "./EntireLyrics";

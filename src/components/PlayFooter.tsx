@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setCurrentTime } from "../modules/MusicControl";
-
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { setCurrentTime } from "../modules/MusicControl";
 
 function PlayFooter({ music, newTime }) {
   const [trackProgress, setTrackProgress] = useState(0);

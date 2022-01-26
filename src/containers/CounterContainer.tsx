@@ -1,6 +1,5 @@
-import React from "react";
-import Counter from "../components/Lyrics";
 import { useSelector, useDispatch } from "react-redux";
+import Counter from "../components/Lyrics";
 import { increase, decrease } from "../modules/MusicControl";
 
 function CounterContainer() {

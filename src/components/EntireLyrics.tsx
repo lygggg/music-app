@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Lyric from "./Lyric";
 import { Scrollbar } from "smooth-scrollbar-react";
+import Lyric from "./Lyric";
 
 function EntireLyrics({ music, setLyricsPage, time }) {
   let firstTime = 0;

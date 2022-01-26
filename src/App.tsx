@@ -1,10 +1,7 @@
-import { useState } from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-
-import MusicPage from "./pages/MusicPage";
-
-import "./App.css";
 import styled from "styled-components";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import MusicPage from "./pages/MusicPage";
+import "./App.css";
 
 function App() {
   return (
