@@ -1,4 +1,4 @@
-import * as musicAPI from "../apis/Music";
+import * as musicAPI from "../services/MusicService";
 
 const GET_MUSIC = "GET_MUSIC"; // 요청 시작
 const GET_MUSIC_SUCCESS = "GET_MUSIC_SUCCESS"; // 요청 성공

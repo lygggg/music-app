@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { setSelectMusic } from "../modules/MusicControl";
 
-function Lyric({ lyric }) {
+const Lyric = ({ lyric }) => {
   const dispatch = useDispatch();
   const changeCurrentTime = () => {
     dispatch(setSelectMusic(lyric));
@@ -16,7 +16,7 @@ function Lyric({ lyric }) {
       )}
     </div>
   );
-}
+};
 
 const Text = styled.div`
   margin-top: 10px;

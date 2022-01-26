@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Counter from "../components/Lyrics";
 import { increase, decrease } from "../modules/MusicControl";
 
-function CounterContainer() {
+const CounterContainer = () => {
   const number = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
@@ -16,6 +16,6 @@ function CounterContainer() {
   return (
     <Counter number={number} onIncrease={onIncrease} onDecrease={onDecrease} />
   );
-}
+};
 
 export default CounterContainer;

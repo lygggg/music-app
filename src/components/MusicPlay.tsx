@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Lyrics from "./Lyrics";
 import EntireLyrics from "./EntireLyrics";
 
-function MusicPlay({ music, time }) {
+const MusicPlay = ({ music, time }) => {
   const [lyricsPage, setLyricsPage] = useState(true);
 
   const backLyricsPage = () => {
@@ -35,7 +35,7 @@ function MusicPlay({ music, time }) {
       </StyledInner>
     </StyledMain>
   );
-}
+};
 
 const TitleDiv = styled.div`
   margin-top: 80px;

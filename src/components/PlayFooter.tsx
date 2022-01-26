@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { setCurrentTime } from "../modules/MusicControl";
 
-function PlayFooter({ music, newTime }) {
+const PlayFooter = ({ music, newTime }) => {
   const [trackProgress, setTrackProgress] = useState(0);
   const [durationTime, setDurationTime] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -120,7 +120,7 @@ function PlayFooter({ music, newTime }) {
       </ImgDiv>
     </Footer>
   );
-}
+};
 
 const StyledDiv = styled.div`
   text-align: -webkit-center;

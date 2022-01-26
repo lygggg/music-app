@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import MusicPage from "./pages/MusicPage";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <>
       <BrowserRouter>
@@ -15,7 +15,7 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
+};
 
 const InnerDiv = styled.div`
   width: 100%;

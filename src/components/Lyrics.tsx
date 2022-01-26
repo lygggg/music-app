@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-function Lyrics({ lyrics, time }) {
+const Lyrics = ({ lyrics, time }) => {
   let firstTime = 0;
   let middleTime = 0;
   let sumTime = 0;
@@ -49,7 +49,7 @@ function Lyrics({ lyrics, time }) {
       <NextText>{nextText}</NextText>
     </TextContainer>
   );
-}
+};
 const TextContainer = styled.div`
   margin-top: 20px;
 `;

@@ -5,7 +5,7 @@ import MusicPlay from "../components/MusicPlay";
 import PlayFooter from "../components/PlayFooter";
 import { getMusic } from "../modules/Music";
 
-function MusicPage() {
+const MusicPage = () => {
   const { data, loading, error } = useSelector((state) => state.music.music);
   const time = useSelector((state) => state.musicControl.musicControl.time);
   const newTime = useSelector((state) => state.musicControl.selectMusic.object);
@@ -22,7 +22,7 @@ function MusicPage() {
       <PlayFooter music={data} newTime={newTime} />
     </Main>
   );
-}
+};
 
 const Main = styled.div`
   width: 100%;

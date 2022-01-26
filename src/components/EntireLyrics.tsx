@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Scrollbar } from "smooth-scrollbar-react";
 import Lyric from "./Lyric";
 
-function EntireLyrics({ music, setLyricsPage, time }) {
+const EntireLyrics = ({ music, setLyricsPage, time }) => {
   let firstTime = 0;
   let middleTime = 0;
   let sumTime = 0;
@@ -84,7 +84,7 @@ function EntireLyrics({ music, setLyricsPage, time }) {
       </MusicContainer>
     </MainContainer>
   );
-}
+};
 
 const LyricList = styled.div`
   margin-top: 20px;
