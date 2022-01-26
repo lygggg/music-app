@@ -29,4 +29,5 @@ const Main = styled.div`
   height: 100%;
   margin: 0 auto;
 `;
+
 export default MusicPage;

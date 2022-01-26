@@ -7,8 +7,8 @@ const EntireLyrics = ({ music, setLyricsPage, time }) => {
   let firstTime = 0;
   let middleTime = 0;
   let sumTime = 0;
-  const sliceLyrics = music.lyrics.split("\n");
-  const lyricsTime = String(sliceLyrics)
+  const slicedLyrics = music.lyrics.split("\n");
+  const lyricsTime = String(slicedLyrics)
     .match(/((\[)(.*?)(\]))/g)
     ?.map((e) => {
       firstTime = e.substr(1, 2);
@@ -16,7 +16,7 @@ const EntireLyrics = ({ music, setLyricsPage, time }) => {
       sumTime = firstTime * 60 + Number(middleTime);
       return sumTime;
     });
-  const lyricsText = sliceLyrics.map((e) => e.replace(/((\[)(.*?)(\]))/g, ""));
+  const lyricsText = slicedLyrics.map((e) => e.replace(/((\[)(.*?)(\]))/g, ""));
   const lyricsObject = lyricsTime?.reduce((acc, curr, idx) => {
     {
       acc.push({
@@ -56,8 +56,8 @@ const EntireLyrics = ({ music, setLyricsPage, time }) => {
           />
         </div>
         <Title>{music.title}</Title>
-        <AlbumText>{music.album}</AlbumText>
-        <SingerText>{music.singer}</SingerText>
+        <Album>{music.album}</Album>
+        <Singer>{music.singer}</Singer>
         <Scrollbar
           className="custom-class"
           alwaysShowTracks
@@ -125,11 +125,11 @@ const Title = styled.div`
   margin-top: 20px;
 `;
 
-const AlbumText = styled.div`
+const Album = styled.div`
   font-size: 17px;
 `;
 
-const SingerText = styled.div`
+const Singer = styled.div`
   font-size: 15px;
   color: #5d5d5d;
 `;

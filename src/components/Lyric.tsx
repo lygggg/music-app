@@ -4,9 +4,11 @@ import { setSelectMusic } from "../modules/MusicControl";
 
 const Lyric = ({ lyric }) => {
   const dispatch = useDispatch();
+
   const changeCurrentTime = () => {
     dispatch(setSelectMusic(lyric));
   };
+
   return (
     <div>
       {lyric.color ? (

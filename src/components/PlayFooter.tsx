@@ -13,7 +13,6 @@ const PlayFooter = ({ music, newTime }) => {
   const dispatch = useDispatch();
 
   const startTimer = () => {
-    // Clear any timers already running
     clearInterval(intervalRef.current);
     setDurationTime(audioRef.current.duration);
 
@@ -75,7 +74,7 @@ const PlayFooter = ({ music, newTime }) => {
 
   return (
     <Footer>
-      <InputDiv>
+      <Input>
         <input
           value={trackProgress}
           max={String(durationTime)}
@@ -86,9 +85,9 @@ const PlayFooter = ({ music, newTime }) => {
           onMouseUp={onScrubEnd}
           onTouchEnd={onScrubEnd}
         ></input>
-      </InputDiv>
-      <StyledDiv>
-        <TimeDiv>
+      </Input>
+      <Styled>
+        <Time>
           <LeftScore>
             {String(Math.floor(trackProgress / 60)).padStart(2, "0")}:
             {String(Math.ceil(trackProgress) % 60).padStart(2, "0")}
@@ -101,8 +100,8 @@ const PlayFooter = ({ music, newTime }) => {
               </>
             )}
           </RightScore>
-        </TimeDiv>
-      </StyledDiv>
+        </Time>
+      </Styled>
       <ImgDiv>
         <Img src="../../assets/img/playbutton.png" />
         {isPlaying ? (
@@ -122,10 +121,10 @@ const PlayFooter = ({ music, newTime }) => {
   );
 };
 
-const StyledDiv = styled.div`
+const Styled = styled.div`
   text-align: -webkit-center;
 `;
-const InputDiv = styled.div`
+const Input = styled.div`
   width: 80%;
 `;
 const LeftScore = styled.div`
@@ -138,7 +137,7 @@ const RightScore = styled.div`
   color: #bdbdbd;
 `;
 
-const TimeDiv = styled.div`
+const Time = styled.div`
   display: flex;
   width: 80%;
   heigth: 100%;

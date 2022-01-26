@@ -13,14 +13,14 @@ const MusicPlay = ({ music, time }) => {
   return (
     <StyledMain>
       <StyledInner>
-        {lyricsPage === true ? (
+        {lyricsPage ? (
           <>
-            <TitleDiv>{music.title}</TitleDiv>
-            <AlbumDiv>{music.album}</AlbumDiv>
-            <SingerDiv>{music.singer}</SingerDiv>
-            <ImgDiv>
+            <Title>{music.title}</Title>
+            <Album>{music.album}</Album>
+            <Singer>{music.singer}</Singer>
+            <Img>
               <StyledImg src={music.image} />
-            </ImgDiv>
+            </Img>
             <div onClick={() => setLyricsPage(false)}>
               <Lyrics lyrics={music.lyrics} time={Math.ceil(time)} />
             </div>
@@ -37,22 +37,22 @@ const MusicPlay = ({ music, time }) => {
   );
 };
 
-const TitleDiv = styled.div`
+const Title = styled.div`
   margin-top: 80px;
   font-size: 22px;
   font-weight: lighter;
 `;
 
-const AlbumDiv = styled.div`
+const Album = styled.div`
   font-size: 17px;
 `;
 
-const ImgDiv = styled.div`
+const Img = styled.div`
   margin-top: 30px;
   color: #353535;
 `;
 
-const SingerDiv = styled.div`
+const Singer = styled.div`
   font-size: 15px;
   color: #5d5d5d;
 `;

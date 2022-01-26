@@ -1,16 +1,16 @@
 import * as musicAPI from "../services/MusicService";
 
-const GET_MUSIC = "GET_MUSIC"; // 요청 시작
-const GET_MUSIC_SUCCESS = "GET_MUSIC_SUCCESS"; // 요청 성공
-const GET_MUSIC_ERROR = "GET_MUSIC_ERROR"; // 요청 실패
+const GET_MUSIC = "GET_MUSIC";
+const GET_MUSIC_SUCCESS = "GET_MUSIC_SUCCESS";
+const GET_MUSIC_ERROR = "GET_MUSIC_ERROR";
 
 export const getMusic = () => async (dispatch) => {
-  dispatch({ type: GET_MUSIC }); // 요청이 시작됨
+  dispatch({ type: GET_MUSIC });
   try {
-    const music = await musicAPI.getMusic(); // API 호출
-    dispatch({ type: GET_MUSIC_SUCCESS, music }); // 성공
+    const music = await musicAPI.getMusic();
+    dispatch({ type: GET_MUSIC_SUCCESS, music });
   } catch (e) {
-    dispatch({ type: GET_MUSIC_ERROR, error: e }); // 실패
+    dispatch({ type: GET_MUSIC_ERROR, error: e });
   }
 };
 
