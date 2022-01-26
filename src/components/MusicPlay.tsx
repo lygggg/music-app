@@ -14,8 +14,6 @@ const MusicPlay = ({ music, time }) => {
     setLyricsPage(false);
   };
 
-  const;
-
   return (
     <StyledMain>
       <StyledInner>
