@@ -28,7 +28,7 @@ const MusicPlay = ({ music, time }) => {
         ) : (
           <EntireLyrics
             music={music}
-            setLyricsPage={backLyricsPage}
+            LyricsPage={backLyricsPage}
             time={Math.ceil(time)}
           />
         )}

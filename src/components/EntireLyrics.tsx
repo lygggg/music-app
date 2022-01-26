@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Scrollbar } from "smooth-scrollbar-react";
 import Lyric from "./Lyric";
 
-const EntireLyrics = ({ music, setLyricsPage, time }) => {
+const EntireLyrics = ({ music, LyricsPage, time }) => {
   let firstTime = 0;
   let middleTime = 0;
   let sumTime = 0;
@@ -30,7 +30,7 @@ const EntireLyrics = ({ music, setLyricsPage, time }) => {
   const [lyricList, setLyricList] = useState(lyricsObject);
 
   const backPage = () => {
-    setLyricsPage();
+    LyricsPage();
   };
 
   const changeLyrics = () => {
