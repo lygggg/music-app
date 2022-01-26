@@ -6,9 +6,15 @@ import EntireLyrics from "./EntireLyrics";
 const MusicPlay = ({ music, time }) => {
   const [lyricsPage, setLyricsPage] = useState(true);
 
-  const backLyricsPage = () => {
+  const clickBackLyricsPage = () => {
     setLyricsPage(true);
   };
+
+  const clickLyricsPage = () => {
+    setLyricsPage(false);
+  };
+
+  const;
 
   return (
     <StyledMain>
@@ -21,14 +27,14 @@ const MusicPlay = ({ music, time }) => {
             <Img>
               <StyledImg src={music.image} />
             </Img>
-            <div onClick={() => setLyricsPage(false)}>
+            <div onClick={clickLyricsPage}>
               <Lyrics lyrics={music.lyrics} time={Math.ceil(time)} />
             </div>
           </>
         ) : (
           <EntireLyrics
             music={music}
-            LyricsPage={backLyricsPage}
+            LyricsPage={clickBackLyricsPage}
             time={Math.ceil(time)}
           />
         )}
