@@ -33,8 +33,10 @@ $ npm run dev
    - 전체 가사 화면 닫기 버튼
    - Seekbar
    - Play/Stop 버튼
+     <br/><br/><br/>
 
-<iframe width="460" height="250" src="https://www.youtube.com/embed/9jqPagW8fR4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<img width="300px" height= "450px" src="./assets/img/musicapp.gif">
+<br/><br/><br/>
 
 ## 고민했던 부분
 
